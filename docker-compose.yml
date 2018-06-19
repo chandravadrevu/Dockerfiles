@@ -1,0 +1,16 @@
+version: "3"
+ 
+services:
+ 
+  ubuntu:
+    image: ubuntu18
+    ports:
+      - 9099:80
+    deploy:
+      mode: replicated
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+        delay: 30s
+        max_attempts: 3
+        window: 120s
